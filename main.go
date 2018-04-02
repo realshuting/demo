@@ -4,7 +4,6 @@ import (
 	"encoding/csv"
 	"fmt"
 	"os"
-	"sort"
 	"strconv"
 )
 
@@ -24,27 +23,9 @@ func main() {
 	}
 
 	fmt.Println("Total Records: ", len(rows)-1)
-	fmt.Println("Air Temp: ", mean(rows, 1), median(rows, 1))
-	fmt.Println("Barometric: ", mean(rows, 2), median(rows, 2))
-	fmt.Println("Wind Speed: ", mean(rows, 7), median(rows, 7))
-}
-
-func median(rows [][]string, idx int) float64 {
-	var sorted []float64
-
-	for i, row := range rows {
-		if i != 0 {
-			val, _ := strconv.ParseFloat(row[idx], 64)
-			sorted = append(sorted, val)
-		}
-	}
-
-	sort.Float64s(sorted)
-
-	if len(sorted)%2 == 0 {
-		return 0.0
-	}
-	return 1.0
+	fmt.Println("Air Temp: ", mean(rows, 1))
+	fmt.Println("Barometric: ", mean(rows, 2))
+	fmt.Println("Wind Speed: ", mean(rows, 7))
 }
 
 func mean(rows [][]string, idx int) float64 {

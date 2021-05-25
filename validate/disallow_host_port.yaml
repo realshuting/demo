@@ -3,7 +3,6 @@ kind: ClusterPolicy
 metadata:
   name: disallow-host-port
   annotations:
-    policies.kyverno.io/category: Pod Security Standards (Baseline)
     policies.kyverno.io/severity: medium
     policies.kyverno.io/subject: Pod
     policies.kyverno.io/description: >-
